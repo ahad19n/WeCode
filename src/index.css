@@ -1,0 +1,679 @@
+/* ==========================================
+   Font Imports
+========================================== */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap");
+
+/* ==========================================
+   Tailwind CSS
+========================================== */
+@import "tailwindcss";
+
+/* ==========================================
+   Dark Mode Setup (Tailwind v4 style)
+========================================== */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ==========================================
+   Theme Colors (Tailwind v4)
+========================================== */
+@theme {
+  --color-primary: #d05b97;
+  --color-secondary: #6f4768;
+  --color-dark: #23252d;
+  --color-light: #faf9fb;
+}
+
+/* ==========================================
+   Base Styles
+========================================== */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: #faf9fb;
+  color: #2d2d2d;
+  font-family: "Inter", sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+.dark body {
+  background: #0a0a0f;
+  color: #e0e0e0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* ==========================================
+   Typography
+========================================== */
+.font-mono,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "IBM Plex Mono", monospace;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  letter-spacing: -0.03em;
+  font-weight: 700;
+  color: #23252d;
+}
+
+.dark h1,
+.dark h2,
+.dark h3,
+.dark h4,
+.dark h5,
+.dark h6 {
+  color: #f0f0f0;
+}
+
+p {
+  color: #555;
+}
+
+.dark p {
+  color: #aaa;
+}
+
+/* ==========================================
+   Global Elements
+========================================== */
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+}
+
+button {
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+/* ==========================================
+   Selection
+========================================== */
+::selection {
+  background: #d05b97;
+  color: white;
+}
+
+/* ==========================================
+   Focus States (Accessibility)
+========================================== */
+*:focus-visible {
+  outline: 2px solid #d31773;
+  outline-offset: 2px;
+}
+
+/* ==========================================
+   Custom Utility Classes
+========================================== */
+.card-shadow {
+  box-shadow:
+    0 4px 10px rgba(0, 0, 0, 0.05),
+    0 12px 30px rgba(0, 0, 0, 0.06);
+}
+
+.dark .card-shadow {
+  box-shadow:
+    0 4px 10px rgba(0, 0, 0, 0.3),
+    0 12px 30px rgba(0, 0, 0, 0.4);
+}
+
+.hover-lift {
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-6px);
+  box-shadow:
+    0 8px 20px rgba(0, 0, 0, 0.08),
+    0 20px 40px rgba(0, 0, 0, 0.08);
+}
+
+.dark .hover-lift:hover {
+  box-shadow:
+    0 8px 20px rgba(0, 0, 0, 0.3),
+    0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.section-padding {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+}
+
+/* Gradient Text Utilities */
+.text-gradient {
+  background: linear-gradient(90deg, #d05b97, #6f4768);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-primary {
+  background: linear-gradient(135deg, #d31773, #b50e61);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.dark .glass {
+  background: rgba(20, 20, 30, 0.75);
+}
+
+.border-gradient {
+  border: 1px solid rgba(208, 91, 151, 0.15);
+}
+
+/* Card Hover Effects */
+.hover-card {
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.hover-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+}
+
+.dark .hover-card:hover {
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Container */
+.container {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+/* ==========================================
+   Buttons
+========================================== */
+.btn-primary {
+  background: #d05b97;
+  color: white;
+  border-radius: 0.5rem;
+  padding: 0.8rem 1.6rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background: #bb4d85;
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background: white;
+  color: #6f4768;
+  border: 1px solid #d8d8d8;
+  border-radius: 0.5rem;
+  padding: 0.8rem 1.6rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.dark .btn-secondary {
+  background: #1a1a2e;
+  color: #d05b97;
+  border-color: #3a3a4e;
+}
+
+.btn-secondary:hover {
+  border-color: #d05b97;
+  color: #d05b97;
+}
+
+/* ==========================================
+   Form Elements
+========================================== */
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  ring: 2px solid #d31773;
+  ring-offset: 2px;
+}
+
+.dark input,
+.dark textarea,
+.dark select {
+  background: #1a1a2e;
+  border-color: #3a3a4e;
+  color: #e0e0e0;
+}
+
+.dark input::placeholder,
+.dark textarea::placeholder {
+  color: #666;
+}
+
+/* ==========================================
+   Animations
+========================================== */
+.fade-in {
+  animation: fadeIn 0.8s ease forwards;
+}
+
+.slide-up {
+  animation: slideUp 0.8s ease forwards;
+}
+
+.slide-in-left {
+  animation: slideInLeft 0.8s ease forwards;
+}
+
+.slide-in-right {
+  animation: slideInRight 0.8s ease forwards;
+}
+
+.scale-in {
+  animation: scaleIn 0.6s ease forwards;
+}
+
+.float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.float-delay-1 {
+  animation-delay: 0.5s;
+}
+
+.float-delay-2 {
+  animation-delay: 1s;
+}
+
+.float-delay-3 {
+  animation-delay: 1.5s;
+}
+
+.pulse-glow {
+  animation: pulseGlow 2s ease-in-out infinite;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulseGlow {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+/* Shimmer Loading Animation */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.skeleton {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+.dark .skeleton {
+  background: linear-gradient(90deg, #2a2a3e 25%, #3a3a4e 50%, #2a2a3e 75%);
+}
+
+/* ==========================================
+   Navbar Link Styles
+========================================== */
+.nav-link {
+  position: relative;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  width: 0;
+  height: 3px;
+  background: #d31773;
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* ==========================================
+   Scrollbar
+========================================== */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f4f4f4;
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: #1a1a2e;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c5c5c5;
+  border-radius: 999px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #3a3a4e;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #d05b97;
+}
+
+/* ==========================================
+   Responsive Adjustments
+========================================== */
+@media (max-width: 768px) {
+  .section-padding {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+}
+
+/* ==========================================
+   Additional Dark Mode Utilities
+========================================== */
+/* Card backgrounds */
+.dark .bg-white {
+  background-color: #1a1a2e;
+}
+
+.dark .bg-gray-50 {
+  background-color: #141420;
+}
+
+.dark .bg-gray-100 {
+  background-color: #1e1e32;
+}
+
+.dark .border-gray-100 {
+  border-color: #2a2a3e;
+}
+
+.dark .border-gray-200 {
+  border-color: #2a2a3e;
+}
+
+.dark .border-gray-300 {
+  border-color: #3a3a4e;
+}
+
+/* Text colors */
+.dark .text-gray-500 {
+  color: #888;
+}
+
+.dark .text-gray-600 {
+  color: #999;
+}
+
+.dark .text-gray-700 {
+  color: #aaa;
+}
+
+.dark .text-gray-800 {
+  color: #ccc;
+}
+
+.dark .text-gray-900 {
+  color: #eee;
+}
+
+/* Shadow adjustments */
+.dark .shadow-sm {
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+}
+
+.dark .shadow {
+  box-shadow:
+    0 1px 3px 0 rgba(0, 0, 0, 0.3),
+    0 1px 2px -1px rgba(0, 0, 0, 0.3);
+}
+
+.dark .shadow-md {
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.3),
+    0 2px 4px -2px rgba(0, 0, 0, 0.3);
+}
+
+.dark .shadow-lg {
+  box-shadow:
+    0 10px 15px -3px rgba(0, 0, 0, 0.3),
+    0 4px 6px -4px rgba(0, 0, 0, 0.3);
+}
+
+.dark .shadow-xl {
+  box-shadow:
+    0 20px 25px -5px rgba(0, 0, 0, 0.3),
+    0 8px 10px -6px rgba(0, 0, 0, 0.3);
+}
+
+/* Ring colors */
+.dark .ring-gray-300 {
+  --tw-ring-color: #3a3a4e;
+}
+
+/* Divide colors */
+.dark .divide-gray-200 > * + * {
+  border-color: #2a2a3e;
+}
+
+/* Placeholder colors */
+.dark ::placeholder {
+  color: #666;
+}
+
+/* Selection color in dark mode */
+.dark ::selection {
+  background: #6f4768;
+  color: white;
+}
+
+/* Link hover effects in dark mode */
+.dark a:hover {
+  color: #e85b9e;
+}
+
+/* Input focus in dark mode */
+.dark input:focus,
+.dark textarea:focus,
+.dark select:focus {
+  outline: 2px solid #d31773;
+  outline-offset: 2px;
+}
+
+/* ==========================================
+   Animated Background Gradients
+========================================== */
+.animated-bg {
+  background: linear-gradient(-45deg, #d31773, #6f4768, #d31773, #b50e61);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* ==========================================
+   Glassmorphism Enhancements
+========================================== */
+.glass-dark {
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dark .glass-dark {
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* ==========================================
+   Hover Scale with Rotation
+========================================== */
+.hover-rotate {
+  transition: transform 0.4s ease;
+}
+
+.hover-rotate:hover {
+  transform: scale(1.05) rotate(-2deg);
+}
+
+.hover-rotate-reverse:hover {
+  transform: scale(1.05) rotate(2deg);
+}
+
+/* ==========================================
+   Text Reveal Animation
+========================================== */
+.reveal-text {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: revealText 0.8s ease forwards;
+}
+
+.reveal-text-delay-1 {
+  animation-delay: 0.2s;
+}
+
+.reveal-text-delay-2 {
+  animation-delay: 0.4s;
+}
+
+.reveal-text-delay-3 {
+  animation-delay: 0.6s;
+}
+
+@keyframes revealText {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
