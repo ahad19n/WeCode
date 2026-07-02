@@ -10,7 +10,7 @@ const Footer: React.FC = () => {
       
       <div className="w-full border-t border-gray-200 dark:border-gray-800" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 pt-16 pb-20">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 pt-16 pb-30">
         <div className="grid lg:grid-cols-4 gap-14">
           
           <div>
@@ -19,11 +19,7 @@ const Footer: React.FC = () => {
               Modern, reliable and scalable software
               solutions for businesses and startups.
             </p>
-                        <h3 className="text-[17px] font-bold mb-5 text-gray-900 dark:text-white tracking-wide">
-              Contact Us
-            </h3>
             <div className="space-y-5 text-[15px]">
-
               <div className="flex gap-4 items-center">
                 <Phone className="text-[#c21b6f] shrink-0" size={18} />
                 <span className="text-gray-600 dark:text-gray-400">+92 323 5400291</span>
@@ -31,6 +27,14 @@ const Footer: React.FC = () => {
               <div className="flex gap-4 items-center">
                 <Mail className="text-[#c21b6f] shrink-0" size={18} />
                 <span className="text-gray-600 dark:text-gray-400">support@wecode.com.pk</span>
+              </div>
+              <div className="flex gap-4 items-start">
+                <MapPin className="text-[#c21b6f] shrink-0 mt-0.5" size={18} />
+                <span className="text-gray-600 dark:text-gray-400 leading-6">
+                  36, Lane 2,
+                  <br />
+                  Westridge 3, Rawalpindi
+                </span>
               </div>
             </div>
           </div>
@@ -63,24 +67,19 @@ const Footer: React.FC = () => {
             <h3 className="text-[17px] font-bold mb-5 text-gray-900 dark:text-white tracking-wide">
               Services
             </h3>
-            <div className="space-y-2.5 text-[15px] text-gray-600 dark:text-gray-400">
-              <p className="hover:text-[#c21b6f] transition-colors cursor-pointer w-fit">Web Development</p>
-              <p className="hover:text-[#c21b6f] transition-colors cursor-pointer w-fit">Mobile Development</p>
-              <p className="hover:text-[#c21b6f] transition-colors cursor-pointer w-fit">UI/UX Design</p>
-              <p className="hover:text-[#c21b6f] transition-colors cursor-pointer w-fit">Software Solutions</p>
-              <p className="hover:text-[#c21b6f] transition-colors cursor-pointer w-fit">Maintenance & Support</p>
+            <div className="flex flex-col space-y-2.5 text-[15px]">
+              <Link to="/services" className="text-gray-600 dark:text-gray-400 hover:text-[#c21b6f] transition-colors w-fit">Web Development</Link>
+              <Link to="/services" className="text-gray-600 dark:text-gray-400 hover:text-[#c21b6f] transition-colors w-fit">Mobile Development</Link>
+              <Link to="/services" className="text-gray-600 dark:text-gray-400 hover:text-[#c21b6f] transition-colors w-fit">UI/UX Design</Link>
+              <Link to="/services" className="text-gray-600 dark:text-gray-400 hover:text-[#c21b6f] transition-colors w-fit">Software Solutions</Link>
+              <Link to="/services" className="text-gray-600 dark:text-gray-400 hover:text-[#c21b6f] transition-colors w-fit">Maintenance & Support</Link>
+
             </div>
           </div>
 
           <div>
 
           </div>
-        </div>
-
-        <div className="mt-12 border-t border-gray-100 dark:border-gray-800 pt-6">
-          <p className="text-sm text-gray-500 dark:text-gray-500">
-            © {new Date().getFullYear()} WeCode. All Rights Reserved.
-          </p>
         </div>
       </div>
 

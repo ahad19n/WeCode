@@ -8,16 +8,13 @@ const About: React.FC = () => {
     <div className="max-w-5xl mx-auto">
       <div {...useSlideUp(0)}>
         <div className="text-center mb-12">
-          <span className="inline-block px-4 py-1.5 mb-4 text-sm font-medium text-[#d31773] dark:text-[#e85b9e] bg-pink-50 dark:bg-pink-950/30 rounded-full">
-            About Us
-          </span>
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
             We Build the Future,
             <br />
             <span className="text-gradient-primary">One Line of Code at a Time</span>
           </h1>
           <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-            Welcome to wecode — where we transform ideas into elegant digital solutions.
+            Welcome to WeCode — where we transform ideas into elegant digital solutions.
           </p>
         </div>
       </div>
@@ -82,45 +79,3 @@ const About: React.FC = () => {
 };
 
 export default About;
-
-
-
-
-// // src/pages/About.tsx
-// import React from 'react';
-
-// const About: React.FC = () => {
-//   return (
-//     <div className="max-w-4xl mx-auto">
-//       <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">About Us</h1>
-//       <div className="prose prose-lg dark:prose-invert">
-//         <p className="text-gray-600 dark:text-gray-400 mb-4">
-//           Welcome to wecode — where we transform ideas into elegant digital solutions.
-//         </p>
-//         <p className="text-gray-600 dark:text-gray-400 mb-4">
-//           We are a team of passionate developers and designers committed to building
-//           exceptional web experiences. Our approach combines technical expertise with
-//           creative vision to deliver solutions that truly make a difference.
-//         </p>
-//         <div className="bg-gray-50 dark:bg-gray-800/50 p-6 rounded-lg mt-8">
-//           <h2 className="text-xl font-semibold mb-3 text-gray-800 dark:text-white">Our Mission</h2>
-//           <p className="text-gray-600 dark:text-gray-400">
-//             To empower businesses with cutting-edge technology and beautiful design,
-//             making the digital world more accessible and engaging for everyone.
-//           </p>
-//         </div>
-//         <div className="bg-gray-50 dark:bg-gray-800/50 p-6 rounded-lg mt-4">
-//           <h2 className="text-xl font-semibold mb-3 text-gray-800 dark:text-white">Our Values</h2>
-//           <ul className="list-disc list-inside text-gray-600 dark:text-gray-400 space-y-2">
-//             <li>Quality craftsmanship in every line of code</li>
-//             <li>User-first design thinking</li>
-//             <li>Continuous learning and innovation</li>
-//             <li>Transparent and honest communication</li>
-//           </ul>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default About;

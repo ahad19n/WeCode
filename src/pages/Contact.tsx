@@ -3,22 +3,48 @@ import React, { useState } from 'react';
 import { MapPin, Phone, Mail, Send, CheckCircle } from 'lucide-react';
 import { useSlideUp, useSlideInLeft, useSlideInRight } from '../hooks/useScrollAnimation';
 
+// Get your free access key at https://web3forms.com (messages are sent to the
+// email you registered the key with). Replace the placeholder below.
+const WEB3FORMS_ACCESS_KEY = 'YOUR_ACCESS_KEY_HERE';
+
 const Contact: React.FC = () => {
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState('');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 3000);
+    setError('');
+    setSending(true);
+
+    const formData = new FormData(e.currentTarget);
+    formData.append('access_key', WEB3FORMS_ACCESS_KEY);
+
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formData,
+      });
+      const data = await res.json();
+
+      if (data.success) {
+        e.currentTarget.reset();
+        setSubmitted(true);
+        setTimeout(() => setSubmitted(false), 3000);
+      } else {
+        setError(data.message || 'Something went wrong. Please try again.');
+      }
+    } catch {
+      setError('Network error. Please try again.');
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
     <div className="max-w-5xl mx-auto">
       <div {...useSlideUp(0)}>
         <div className="text-center mb-12">
-          <span className="inline-block px-4 py-1.5 mb-4 text-sm font-medium text-[#d31773] dark:text-[#e85b9e] bg-pink-50 dark:bg-pink-950/30 rounded-full">
-            Get in Touch
-          </span>
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
             Let's Talk
           </h1>
@@ -31,26 +57,13 @@ const Contact: React.FC = () => {
       <div className="grid md:grid-cols-2 gap-8">
         {/* Left - Contact Info */}
         <div className="space-y-6">
-          <div {...useSlideInLeft(0.2)}>
-            <div className="group p-8 bg-white dark:bg-gray-800/50 rounded-2xl border border-gray-100 dark:border-gray-700 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-pink-100 to-purple-100 dark:from-pink-950/40 dark:to-purple-950/40 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                <MapPin className="w-7 h-7 text-[#d31773]" />
-              </div>
-              <h3 className="text-lg font-bold mb-2 text-gray-800 dark:text-white">Visit Us</h3>
-              <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
-                374/4, St. Sial Maternity Home<br />
-                Tench Bhatta, Rawalpindi
-              </p>
-            </div>
-          </div>
-
           <div {...useSlideInLeft(0.4)}>
             <div className="group p-8 bg-white dark:bg-gray-800/50 rounded-2xl border border-gray-100 dark:border-gray-700 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
               <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-pink-100 to-purple-100 dark:from-pink-950/40 dark:to-purple-950/40 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                 <Phone className="w-7 h-7 text-[#d31773]" />
               </div>
               <h3 className="text-lg font-bold mb-2 text-gray-800 dark:text-white">Call Us</h3>
-              <p className="text-gray-600 dark:text-gray-400">0335-2147147</p>
+              <p className="text-gray-600 dark:text-gray-400">+92 323 5400291</p>
             </div>
           </div>
 
@@ -60,14 +73,26 @@ const Contact: React.FC = () => {
                 <Mail className="w-7 h-7 text-[#d31773]" />
               </div>
               <h3 className="text-lg font-bold mb-2 text-gray-800 dark:text-white">Email Us</h3>
-              <p className="text-gray-600 dark:text-gray-400">info@wecode.com.pk</p>
+              <p className="text-gray-600 dark:text-gray-400">support@wecode.com.pk</p>
+            </div>
+          </div>
+          <div {...useSlideInLeft(0.2)}>
+            <div className="group p-8 bg-white dark:bg-gray-800/50 rounded-2xl border border-gray-100 dark:border-gray-700 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-pink-100 to-purple-100 dark:from-pink-950/40 dark:to-purple-950/40 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                <MapPin className="w-7 h-7 text-[#d31773]" />
+              </div>
+              <h3 className="text-lg font-bold mb-2 text-gray-800 dark:text-white">Visit Us</h3>
+              <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+                36, Lane 2,
+                Westridge 3, Rawalpindi
+              </p>
             </div>
           </div>
         </div>
 
         {/* Right - Contact Form */}
         <div {...useSlideInRight(0.3)}>
-          <div className="p-8 bg-white dark:bg-gray-800/50 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm">
+          <div className="h-full p-8 bg-white dark:bg-gray-800/50 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm">
             <h3 className="text-2xl font-bold mb-6 text-gray-800 dark:text-white">Send a Message</h3>
             <form onSubmit={handleSubmit} className="space-y-5">
               <div>
@@ -76,6 +101,7 @@ const Contact: React.FC = () => {
                 </label>
                 <input
                   type="text"
+                  name="name"
                   required
                   className="w-full px-5 py-3 border border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-[#d31773] focus:border-transparent bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-all duration-300"
                   placeholder="John Doe"
@@ -87,6 +113,7 @@ const Contact: React.FC = () => {
                 </label>
                 <input
                   type="email"
+                  name="email"
                   required
                   className="w-full px-5 py-3 border border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-[#d31773] focus:border-transparent bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-all duration-300"
                   placeholder="john@example.com"
@@ -98,20 +125,27 @@ const Contact: React.FC = () => {
                 </label>
                 <textarea
                   rows={5}
+                  name="message"
                   required
                   className="w-full px-5 py-3 border border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-[#d31773] focus:border-transparent bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-all duration-300 resize-none"
                   placeholder="Tell us about your project..."
                 />
               </div>
+              {error && (
+                <p className="text-sm text-red-600 dark:text-red-400">{error}</p>
+              )}
               <button
                 type="submit"
-                className="relative w-full flex items-center justify-center gap-2 px-6 py-4 bg-gradient-to-r from-[#d31773] to-[#b50e61] text-white font-semibold rounded-xl hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden group"
+                disabled={sending}
+                className="relative w-full flex items-center justify-center gap-2 px-6 py-4 bg-gradient-to-r from-[#d31773] to-[#b50e61] text-white font-semibold rounded-xl hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden group disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:translate-y-0 disabled:hover:shadow-none"
               >
                 {submitted ? (
                   <>
                     <CheckCircle size={20} />
                     Message Sent!
                   </>
+                ) : sending ? (
+                  'Sending...'
                 ) : (
                   <>
                     <Send size={20} className="group-hover:translate-x-1 transition-transform" />

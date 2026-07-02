@@ -82,11 +82,11 @@ const Services: React.FC = () => {
       {/* CTA */}
       <div {...useScaleIn(0.2)}>
         <div className="mt-16 p-10 bg-gradient-to-r from-[#d31773] to-[#b50e61] rounded-3xl text-center text-white">
-          <h2 className="text-3xl font-bold mb-3">Ready to Get Started?</h2>
+          <h2 className="text-3xl font-bold mb-3 text-white">Ready to Get Started?</h2>
           <p className="text-pink-100 mb-6">Let's discuss your project and find the perfect solution.</p>
           <Link
             to="/contact"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-white text-[#d31773] font-bold rounded-xl hover:shadow-xl hover:scale-105 transition-all duration-300"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-[#ffffff] text-[#d31773] font-bold rounded-xl hover:shadow-xl hover:scale-105 transition-all duration-300"
           >
             Contact Us Today
             <ArrowRight size={20} />

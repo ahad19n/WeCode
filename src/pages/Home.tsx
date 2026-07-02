@@ -92,7 +92,7 @@ const Home: React.FC = () => {
               </p>
               <Link
                 to="/contact"
-                className="inline-flex items-center gap-3 px-10 py-5 bg-white text-[#d31773] font-bold rounded-2xl shadow-lg hover:shadow-2xl hover:scale-105 hover:-translate-y-1 transition-all duration-300"
+                className="inline-flex items-center gap-3 px-10 py-5 bg-[#ffffff] text-[#d31773] font-bold rounded-2xl shadow-lg hover:shadow-2xl hover:scale-105 hover:-translate-y-1 transition-all duration-300"
               >
                 Start Your Project
                 <Rocket size={24} className="group-hover:translate-x-1 transition-transform" />
