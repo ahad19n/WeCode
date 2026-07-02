@@ -39,7 +39,7 @@ const Services: React.FC = () => {
     { 
       icon: Shield, 
       title: 'Maintenance & Support', 
-      desc: 'Ongoing support and maintenance to keep your applications running smoothly.',
+      desc: 'Support and maintenance to keep your applications running smoothly.',
       color: 'from-rose-500 to-pink-500'
     }
   ];
@@ -48,9 +48,7 @@ const Services: React.FC = () => {
     <div className="max-w-6xl mx-auto">
       <div {...useSlideUp(0)}>
         <div className="text-center mb-12">
-          <span className="inline-block px-4 py-1.5 mb-4 text-sm font-medium text-[#d31773] dark:text-[#e85b9e] bg-pink-50 dark:bg-pink-950/30 rounded-full">
-            What We Offer
-          </span>
+
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
             Our Services
           </h1>
@@ -76,14 +74,6 @@ const Services: React.FC = () => {
               <p className="text-gray-600 dark:text-gray-400 mb-4 leading-relaxed">
                 {service.desc}
               </p>
-              
-              <Link 
-                to="/contact" 
-                className="inline-flex items-center gap-2 text-sm font-semibold text-[#d31773] dark:text-[#e85b9e] group-hover:gap-3 transition-all"
-              >
-                Learn More
-                <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-              </Link>
             </div>
           </div>
         ))}

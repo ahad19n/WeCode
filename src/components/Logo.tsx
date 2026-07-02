@@ -8,14 +8,10 @@ const Logo = () => {
     >
       <div
         className="
-        bg-gradient-to-r
-        from-[#d31773]
-        via-[#cb297b]
-        to-[#d31773]
+
         px-4 
         py-1.5
         rounded-sm
-        shadow-sm
       "
       >
         <span
@@ -28,8 +24,8 @@ const Logo = () => {
             select-none
           "
         >
-          <span className="text-white">we</span>
-          <span className="text-[#222]">code</span>
+          <span className="text-black dark:text-white">we</span>
+          <span className="text-[#d31773]">code</span>
         </span>
       </div>
     </Link>

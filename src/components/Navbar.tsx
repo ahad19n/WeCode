@@ -102,6 +102,7 @@ const Navbar: React.FC = () => {
               hover:scale-105
               transition-all
               duration-300
+              text-white
             "
           >
             Contact Us
