@@ -3,9 +3,8 @@ import React, { useState } from 'react';
 import { MapPin, Phone, Mail, Send, CheckCircle } from 'lucide-react';
 import { useSlideUp, useSlideInLeft, useSlideInRight } from '../hooks/useScrollAnimation';
 
-// Get your free access key at https://web3forms.com (messages are sent to the
-// email you registered the key with). Replace the placeholder below.
-const WEB3FORMS_ACCESS_KEY = 'YOUR_ACCESS_KEY_HERE';
+// Cloudflare Worker that receives contact form submissions.
+const CONTACT_ENDPOINT = 'https://contactform.wckdpk.workers.dev';
 
 const Contact: React.FC = () => {
   const [submitted, setSubmitted] = useState(false);
@@ -17,22 +16,21 @@ const Contact: React.FC = () => {
     setError('');
     setSending(true);
 
-    const formData = new FormData(e.currentTarget);
-    formData.append('access_key', WEB3FORMS_ACCESS_KEY);
+    const form = e.currentTarget;
+    const formData = new FormData(form);
 
     try {
-      const res = await fetch('https://api.web3forms.com/submit', {
+      const res = await fetch(CONTACT_ENDPOINT, {
         method: 'POST',
         body: formData,
       });
-      const data = await res.json();
 
-      if (data.success) {
-        e.currentTarget.reset();
+      if (res.ok) {
+        form.reset();
         setSubmitted(true);
         setTimeout(() => setSubmitted(false), 3000);
       } else {
-        setError(data.message || 'Something went wrong. Please try again.');
+        setError('Something went wrong. Please try again.');
       }
     } catch {
       setError('Network error. Please try again.');
