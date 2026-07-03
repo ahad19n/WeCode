@@ -50,13 +50,13 @@ const Home: React.FC = () => {
           <div className={`flex flex-wrap justify-center gap-4 transition-all duration-700 ${hasLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
                style={{ transitionDelay: '0.9s' }}>
             <Link
-              to="/contact"
+              to="/services"
               className="px-10 py-5 border-2 border-[#d31773] dark:border-[#e85b9e] text-[#d31773] dark:text-[#e85b9e] font-semibold rounded-2xl hover:bg-pink-50 dark:hover:bg-pink-950/20 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
             >
               Explore Services
             </Link>
             <Link
-              to="/services"
+              to="/contact"
               className="group relative px-10 py-5 bg-gradient-to-r from-[#d31773] to-[#b50e61] text-white font-semibold rounded-2xl shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 overflow-hidden"
             >
               <span className="relative z-10 flex items-center gap-2 text-white">
