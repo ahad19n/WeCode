@@ -98,6 +98,8 @@ const RefundPolicy: React.FC = () => {
             Email: <span className="text-[#d31773] dark:text-[#e85b9e]">support@wecode.com.pk</span>
             <br />
             Phone: +92 323 5400291
+            <br />
+            Phone: +92 335 2147147
           </p>
         </section>
       </div>

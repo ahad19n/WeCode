@@ -20,7 +20,7 @@ const OwnershipStatement: React.FC = () => {
 
         <ul className="space-y-1 list-none">
           <li><span className="font-medium text-gray-900 dark:text-white">National Tax Number (NTN):</span> 3740565477847</li>
-          <li><span className="font-medium text-gray-900 dark:text-white">Registered business address:</span> 36, Lane 2, Westridge 3, Rawalpindi, Pakistan</li>
+          <li><span className="font-medium text-gray-900 dark:text-white">Registered business address:</span> 374/4, St. Sial Maternity Home, Tench Bhatta, Rawalpindi</li>
         </ul>
 
         <p>
@@ -35,6 +35,8 @@ const OwnershipStatement: React.FC = () => {
             Email: <span className="text-[#d31773] dark:text-[#e85b9e]">support@wecode.com.pk</span>
             <br />
             Phone: +92 323 5400291
+            <br />
+            Phone: +92 335 2147147
           </p>
         </section>
       </div>

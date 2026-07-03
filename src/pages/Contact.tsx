@@ -64,6 +64,7 @@ const Contact: React.FC = () => {
               </div>
               <h3 className="text-lg font-bold mb-2 text-gray-800 dark:text-white">Call Us</h3>
               <p className="text-gray-600 dark:text-gray-400">+92 323 5400291</p>
+              <p className="text-gray-600 dark:text-gray-400">+92 335 2147147</p>
             </div>
           </div>
 
@@ -83,8 +84,8 @@ const Contact: React.FC = () => {
               </div>
               <h3 className="text-lg font-bold mb-2 text-gray-800 dark:text-white">Visit Us</h3>
               <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
-                36, Lane 2,
-                Westridge 3, Rawalpindi
+                374/4, St. Sial Maternity Home,
+                Tench Bhatta, Rawalpindi
               </p>
             </div>
           </div>

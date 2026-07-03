@@ -22,7 +22,7 @@ const Footer: React.FC = () => {
             <div className="space-y-5 text-[15px]">
               <div className="flex gap-4 items-center">
                 <Phone className="text-[#c21b6f] shrink-0" size={18} />
-                <span className="text-gray-600 dark:text-gray-400">+92 323 5400291</span>
+                <span className="text-gray-600 dark:text-gray-400">+92 323 5400291<br />+92 335 2147147</span>
               </div>
               <div className="flex gap-4 items-center">
                 <Mail className="text-[#c21b6f] shrink-0" size={18} />
@@ -31,9 +31,9 @@ const Footer: React.FC = () => {
               <div className="flex gap-4 items-start">
                 <MapPin className="text-[#c21b6f] shrink-0 mt-0.5" size={18} />
                 <span className="text-gray-600 dark:text-gray-400 leading-6">
-                  36, Lane 2,
+                  374/4, St. Sial Maternity Home,
                   <br />
-                  Westridge 3, Rawalpindi
+                  Tench Bhatta, Rawalpindi
                 </span>
               </div>
             </div>

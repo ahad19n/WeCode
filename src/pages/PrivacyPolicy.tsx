@@ -200,11 +200,13 @@ const PrivacyPolicy: React.FC = () => {
           <p>
             WeCode
             <br />
-            36, Lane 2, Westridge 3, Rawalpindi, Pakistan
+            374/4, St. Sial Maternity Home, Tench Bhatta, Rawalpindi
             <br />
             Email: <span className="text-[#d31773] dark:text-[#e85b9e]">support@wecode.com.pk</span>
             <br />
             Phone: +92 323 5400291
+            <br />
+            Phone: +92 335 2147147
           </p>
         </section>
       </div>
