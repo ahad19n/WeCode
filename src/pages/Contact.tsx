@@ -17,12 +17,13 @@ const Contact: React.FC = () => {
     setSending(true);
 
     const form = e.currentTarget;
-    const formData = new FormData(form);
+    const body = new URLSearchParams(new FormData(form) as any).toString();
 
     try {
       const res = await fetch(CONTACT_ENDPOINT, {
         method: 'POST',
-        body: formData,
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body,
       });
 
       if (res.ok) {
