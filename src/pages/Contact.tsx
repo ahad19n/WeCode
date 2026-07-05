@@ -127,6 +127,7 @@ const Contact: React.FC = () => {
                 <input
                   type="tel"
                   name="phone"
+                  required
                   className="w-full px-5 py-3 border border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-[#d31773] focus:border-transparent bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-all duration-300"
                   placeholder="+92 300 1234567"
                 />
